@@ -1,0 +1,30 @@
+diff -ru contextlib2-0.5.1.orig/test_contextlib2.py contextlib2-0.5.1/test_contextlib2.py
+--- contextlib2-0.5.1.orig/test_contextlib2.py	2016-01-12 12:20:55.000000000 +0100
++++ contextlib2-0.5.1/test_contextlib2.py	2016-04-01 10:34:24.308331998 +0200
+@@ -86,6 +86,8 @@
+             raise ZeroDivisionError(999)
+         self.assertEqual(state, [1, 42, 999])
+ 
++    @unittest.skipUnless(hasattr(unittest.TestCase, "assertRaisesRegex"),
++                         "Test not available on EPEL-6")
+     def test_contextmanager_except_stopiter(self):
+         stop_exc = StopIteration('spam')
+         @contextmanager
+@@ -228,6 +230,8 @@
+         self.assertEqual(context.exc, (None, None, None))
+ 
+ 
++    @unittest.skipUnless(hasattr(unittest.TestCase, "assertRaisesRegex"),
++                         "Test not available on EPEL-6")
+     def test_contextdecorator_with_exception(self):
+         context = mycontext()
+ 
+@@ -256,6 +260,8 @@
+         self.assertEqual(context.exc, (None, None, None))
+ 
+ 
++    @unittest.skipUnless(hasattr(unittest.TestCase, "assertRaisesRegex"),
++                         "Test not available on EPEL-6")
+     def test_decorator_with_exception(self):
+         context = mycontext()
+ 
