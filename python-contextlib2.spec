@@ -13,8 +13,8 @@
 %global modname contextlib2
 
 Name:               python-contextlib2
-Version:            0.4.0
-Release:            4%{?dist}
+Version:            0.5.1
+Release:            1%{?dist}
 Summary:            Backports and enhancements for the contextlib module
 
 Group:              Development/Libraries
@@ -25,9 +25,15 @@ Source0:            https://pypi.python.org/packages/source/c/%{modname}/%{modna
 BuildArch:          noarch
 
 BuildRequires:      python2-devel
+# needed for check: assertRaisesRegex in unittest.TestCase
+BuildRequires:      python-unittest2
 
 %if 0%{?with_python3}
 BuildRequires:      python3-devel
+%endif
+
+%if 0%{?el6}
+Patch0:             contextlib2-skip-tests-on-el6.patch
 %endif
 
 %description
@@ -52,6 +58,9 @@ enhancements to the standard library version.
 
 %prep
 %setup -q -n %{modname}-%{version}
+%if 0%{?el6}
+%patch0 -p1 -b skip-tests-on-el6
+%endif
 
 # Remove bundled egg-info in case it exists
 rm -rf %{modname}.egg-info
@@ -85,14 +94,14 @@ popd
 %endif
 
 %files
-%doc README.txt VERSION.txt NEWS.rst
+%doc README.rst VERSION.txt NEWS.rst
 %license LICENSE.txt
 %{python2_sitelib}/%{modname}.py*
 %{python2_sitelib}/%{modname}-%{version}*
 
 %if 0%{?with_python3}
 %files -n python3-contextlib2
-%doc README.txt VERSION.txt NEWS.rst
+%doc README.rst VERSION.txt NEWS.rst
 %license LICENSE.txt
 %{python3_sitelib}/%{modname}.py*
 %{python3_sitelib}/__pycache__/%{modname}*
@@ -100,6 +109,11 @@ popd
 %endif
 
 %changelog
+* Fri Apr 01 2016 Sander Hoentjen <sander@hoentjen.eu> 0.5.1-1
+- Update to latest upstream (#1297768)
+- add BuildReq for python-unittest2 for tests to pass
+- skip some tests on el6 because python-unittest2 is too old there
+
 * Thu Feb 04 2016 Fedora Release Engineering <releng@fedoraproject.org> - 0.4.0-4
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_24_Mass_Rebuild
 
