@@ -13,14 +13,14 @@
 %global modname contextlib2
 
 Name:               python-contextlib2
-Version:            0.5.1
+Version:            0.5.3
 Release:            1%{?dist}
 Summary:            Backports and enhancements for the contextlib module
 
 Group:              Development/Libraries
 License:            Python
-URL:                http://pypi.python.org/pypi/contextlib2
-Source0:            https://pypi.python.org/packages/source/c/%{modname}/%{modname}-%{version}.tar.gz
+URL:                http://pypi.io/project/contextlib2
+Source0:            https://pypi.io/packages/source/c/%{modname}/%{modname}-%{version}.tar.gz
 
 BuildArch:          noarch
 
@@ -109,6 +109,9 @@ popd
 %endif
 
 %changelog
+* Mon May 02 2016 Ralph Bean <rbean@redhat.com> - 0.5.3-1
+- new version
+
 * Fri Apr 01 2016 Sander Hoentjen <sander@hoentjen.eu> 0.5.1-1
 - Update to latest upstream (#1297768)
 - add BuildReq for python-unittest2 for tests to pass
