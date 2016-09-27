@@ -13,13 +13,13 @@
 %global modname contextlib2
 
 Name:               python-contextlib2
-Version:            0.5.3
-Release:            2%{?dist}
+Version:            0.5.4
+Release:            1%{?dist}
 Summary:            Backports and enhancements for the contextlib module
 
 Group:              Development/Libraries
 License:            Python
-URL:                http://pypi.io/project/contextlib2
+URL:                https://pypi.io/project/contextlib2
 Source0:            https://pypi.io/packages/source/c/%{modname}/%{modname}-%{version}.tar.gz
 
 BuildArch:          noarch
@@ -109,6 +109,9 @@ popd
 %endif
 
 %changelog
+* Tue Sep 27 2016 Ralph Bean <rbean@redhat.com> - 0.5.4-1
+- new version
+
 * Tue Jul 19 2016 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 0.5.3-2
 - https://fedoraproject.org/wiki/Changes/Automatic_Provides_for_Python_RPM_Packages
 
