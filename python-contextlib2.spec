@@ -14,7 +14,7 @@
 
 Name:               python-contextlib2
 Version:            0.5.4
-Release:            1%{?dist}
+Release:            2%{?dist}
 Summary:            Backports and enhancements for the contextlib module
 
 Group:              Development/Libraries
@@ -109,6 +109,9 @@ popd
 %endif
 
 %changelog
+* Mon Dec 12 2016 Charalampos Stratakis <cstratak@redhat.com> - 0.5.4-2
+- Rebuild for Python 3.6
+
 * Tue Sep 27 2016 Ralph Bean <rbean@redhat.com> - 0.5.4-1
 - new version
 
