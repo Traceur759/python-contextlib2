@@ -14,7 +14,7 @@
 
 Name:               python-contextlib2
 Version:            0.5.5
-Release:            1%{?dist}
+Release:            2%{?dist}
 Summary:            Backports and enhancements for the contextlib module
 
 Group:              Development/Libraries
@@ -109,6 +109,9 @@ popd
 %endif
 
 %changelog
+* Thu Jul 27 2017 Fedora Release Engineering <releng@fedoraproject.org> - 0.5.5-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_27_Mass_Rebuild
+
 * Tue Apr 25 2017 Sander Hoentjen <sander@hoentjen.eu> - 0.5.5-1
 - new version
 
