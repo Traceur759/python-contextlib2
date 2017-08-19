@@ -14,7 +14,7 @@
 
 Name:               python-contextlib2
 Version:            0.5.5
-Release:            2%{?dist}
+Release:            3%{?dist}
 Summary:            Backports and enhancements for the contextlib module
 
 Group:              Development/Libraries
@@ -36,12 +36,20 @@ BuildRequires:      python3-devel
 Patch0:             contextlib2-skip-tests-on-el6.patch
 %endif
 
-%description
-contextlib2 is a backport of the standard library's contextlib module to
-earlier Python versions.
-
-It also serves as a real world proving ground for possible future
+%global _description\
+contextlib2 is a backport of the standard library's contextlib module to\
+earlier Python versions.\
+\
+It also serves as a real world proving ground for possible future\
 enhancements to the standard library version.
+
+%description %_description
+
+%package -n python2-contextlib2
+Summary: %summary
+%{?python_provide:%python_provide python2-contextlib2}
+
+%description -n python2-contextlib2 %_description
 
 %if 0%{?with_python3}
 %package -n python3-contextlib2
@@ -93,7 +101,7 @@ pushd %{py3dir}
 popd
 %endif
 
-%files
+%files -n python2-contextlib2
 %doc README.rst VERSION.txt NEWS.rst
 %license LICENSE.txt
 %{python2_sitelib}/%{modname}.py*
@@ -109,6 +117,10 @@ popd
 %endif
 
 %changelog
+* Sat Aug 19 2017 Zbigniew Jędrzejewski-Szmek <zbyszek@in.waw.pl> - 0.5.5-3
+- Python 2 binary package renamed to python2-contextlib2
+  See https://fedoraproject.org/wiki/FinalizingFedoraSwitchtoPython3
+
 * Thu Jul 27 2017 Fedora Release Engineering <releng@fedoraproject.org> - 0.5.5-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_27_Mass_Rebuild
 
