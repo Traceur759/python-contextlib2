@@ -1,4 +1,4 @@
-%if 0%{?fedora}
+%if 0%{?fedora} || 0%{?rhel} > 7
 %global with_python3 1
 %endif
 
@@ -14,7 +14,7 @@
 
 Name:               python-contextlib2
 Version:            0.5.5
-Release:            3%{?dist}
+Release:            4%{?dist}
 Summary:            Backports and enhancements for the contextlib module
 
 Group:              Development/Libraries
@@ -117,6 +117,9 @@ popd
 %endif
 
 %changelog
+* Fri Sep 29 2017 Troy Dawson <tdawson@redhat.com> - 0.5.5-4
+- Cleanup spec file conditionals
+
 * Sat Aug 19 2017 Zbigniew Jędrzejewski-Szmek <zbyszek@in.waw.pl> - 0.5.5-3
 - Python 2 binary package renamed to python2-contextlib2
   See https://fedoraproject.org/wiki/FinalizingFedoraSwitchtoPython3
