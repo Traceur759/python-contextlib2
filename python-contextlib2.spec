@@ -14,7 +14,7 @@
 
 Name:               python-contextlib2
 Version:            0.5.5
-Release:            5%{?dist}
+Release:            6%{?dist}
 Summary:            Backports and enhancements for the contextlib module
 
 Group:              Development/Libraries
@@ -26,7 +26,7 @@ BuildArch:          noarch
 
 BuildRequires:      python2-devel
 # needed for check: assertRaisesRegex in unittest.TestCase
-BuildRequires:      python-unittest2
+BuildRequires:      python2-unittest2
 
 %if 0%{?with_python3}
 BuildRequires:      python3-devel
@@ -117,6 +117,10 @@ popd
 %endif
 
 %changelog
+* Mon Feb 12 2018 Iryna Shcherbina <ishcherb@redhat.com> - 0.5.5-6
+- Update Python 2 dependency declarations to new packaging standards
+  (See https://fedoraproject.org/wiki/FinalizingFedoraSwitchtoPython3)
+
 * Fri Feb 09 2018 Fedora Release Engineering <releng@fedoraproject.org> - 0.5.5-5
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_28_Mass_Rebuild
 
