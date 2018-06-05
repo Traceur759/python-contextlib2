@@ -14,7 +14,7 @@
 
 Name:               python-contextlib2
 Version:            0.5.5
-Release:            6%{?dist}
+Release:            7%{?dist}
 Summary:            Backports and enhancements for the contextlib module
 
 Group:              Development/Libraries
@@ -24,6 +24,7 @@ Source0:            https://pypi.io/packages/source/c/%{modname}/%{modname}-%{ve
 
 BuildArch:          noarch
 
+BuildRequires:      python2-traceback2
 BuildRequires:      python2-devel
 # needed for check: assertRaisesRegex in unittest.TestCase
 BuildRequires:      python2-unittest2
@@ -117,6 +118,9 @@ popd
 %endif
 
 %changelog
+* Tue Jun 05 2018 Marcel Plch <mplch@redhat.com> - 0.5.5-6
+- Add BuildRequires for python-traceback2
+
 * Mon Feb 12 2018 Iryna Shcherbina <ishcherb@redhat.com> - 0.5.5-6
 - Update Python 2 dependency declarations to new packaging standards
   (See https://fedoraproject.org/wiki/FinalizingFedoraSwitchtoPython3)
